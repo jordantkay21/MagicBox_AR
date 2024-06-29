@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1988853399595005532}
   - component: {fileID: 3192948849188708584}
   - component: {fileID: 3184557746436513424}
+  - component: {fileID: -7391588089766008858}
   m_Layer: 0
   m_Name: ExaminationCube_PlacementPrefab
   m_TagString: Untagged
@@ -157,7 +158,19 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -7391588089766008858}
+        m_TargetAssemblyTypeName: Examinable, Assembly-CSharp
+        m_MethodName: RequestExamine
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
       m_Calls: []
@@ -213,3 +226,16 @@ MonoBehaviour:
   m_ExcludeUITouches: 1
   m_ARSessionOrigin: {fileID: 0}
   m_SelectionVisualization: {fileID: 0}
+--- !u!114 &-7391588089766008858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3711800163865676963}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a228235bda11a5541a1aa8098dcb3896, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _examinableManager: {fileID: 0}
