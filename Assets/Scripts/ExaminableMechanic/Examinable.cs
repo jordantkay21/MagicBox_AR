@@ -15,5 +15,14 @@ public class Examinable : MonoBehaviour
     public void RequestExamine()
     {
         _examinableManager.PerformExamine(this);
+
+        print("Examine has been requested");
+    }
+
+    public void RequestUnexamine()
+    {
+        _examinableManager.PerformUnexamine();
+
+        print("Unexamine has been requested");
     }
 }
