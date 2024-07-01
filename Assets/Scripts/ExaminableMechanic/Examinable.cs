@@ -7,6 +7,8 @@ public class Examinable : MonoBehaviour
     [SerializeField]
     private ExaminableManager _examinableManager;
 
+    public float examineScaleOffset = 1f;
+
     private void Start()
     {
         _examinableManager = FindAnyObjectByType<ExaminableManager>();

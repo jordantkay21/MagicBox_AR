@@ -10,8 +10,6 @@ public class RotateObject : MonoBehaviour
     private float _yAxisRotation = 0.0f;
     [SerializeField]
     private float _zAxisRotation = 0.0f;
-    [SerializeField]
-    private float _speed = 0.0f;
     // Start is called before the first frame update
     void Start()
     {
