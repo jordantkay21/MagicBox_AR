@@ -6,6 +6,10 @@ public class ExaminableManager : MonoBehaviour
 {
     [SerializeField] 
     private Transform _examineTarget;
+    [SerializeField]
+    private float rotateSpeed = 1;
+
+    private bool isExamining = false;
 
     //Cached Values
     private Examinable currentExaminable;
@@ -13,9 +17,23 @@ public class ExaminableManager : MonoBehaviour
     private Quaternion cachedRotation;
     private Vector3 cachedScale;
 
+    private void Update()
+    {
+        if (isExamining == true)
+            if(Input.touchCount > 0)
+            {
+                Touch touch = Input.GetTouch(0);
+
+                if (touch.phase == TouchPhase.Moved)
+                    currentExaminable.transform.Rotate(touch.deltaPosition.x * rotateSpeed, touch.deltaPosition.y * rotateSpeed, 0);
+            }
+    }
+
     public void PerformExamine(Examinable examinable)
     {
         currentExaminable = examinable;
+        isExamining = true;
+
         // cache the examainable transform data so we can reset it
         cachedPosition = currentExaminable.transform.position;
         cachedRotation = currentExaminable.transform.rotation;
@@ -34,6 +52,8 @@ public class ExaminableManager : MonoBehaviour
 
     public void PerformUnexamine()
     {
+        isExamining = false;
+
         //reset examinable's transform data back to its original state
         currentExaminable.transform.position = cachedPosition;
         currentExaminable.transform.rotation = cachedRotation;
