@@ -8,6 +8,7 @@ public class Examinable : MonoBehaviour
     private ExaminableManager _examinableManager;
 
     public float examineScaleOffset = 1f;
+    public Transform originalParent;
 
     private void Start()
     {

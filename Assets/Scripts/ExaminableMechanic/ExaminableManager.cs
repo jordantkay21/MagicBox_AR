@@ -25,13 +25,14 @@ public class ExaminableManager : MonoBehaviour
                 Touch touch = Input.GetTouch(0);
 
                 if (touch.phase == TouchPhase.Moved)
-                    currentExaminable.transform.Rotate(touch.deltaPosition.x * rotateSpeed, touch.deltaPosition.y * rotateSpeed, 0);
+                    currentExaminable.transform.Rotate(touch.deltaPosition.x * -rotateSpeed, touch.deltaPosition.y * -rotateSpeed, 0);
             }
     }
 
     public void PerformExamine(Examinable examinable)
     {
         currentExaminable = examinable;
+        currentExaminable.transform.parent = _examineTarget;
         isExamining = true;
 
         // cache the examainable transform data so we can reset it
@@ -41,13 +42,12 @@ public class ExaminableManager : MonoBehaviour
 
         // move the examinable to the target position
         currentExaminable.transform.position = _examineTarget.position;
-        currentExaminable.transform.parent = _examineTarget;
 
         // offset the scale to fit the examinable in view
         Vector3 offsetScale = cachedScale * examinable.examineScaleOffset;
         currentExaminable.transform.localScale = offsetScale;
 
-        print("Examine has been requested");
+        print("Examine has been requested: cachedScale = " + cachedScale + " | offsetScale = " + offsetScale + " | parent = " + currentExaminable.transform.parent);
     }
 
     public void PerformUnexamine()
@@ -58,8 +58,8 @@ public class ExaminableManager : MonoBehaviour
         currentExaminable.transform.position = cachedPosition;
         currentExaminable.transform.rotation = cachedRotation;
         currentExaminable.transform.localScale = cachedScale;
-        currentExaminable.transform.parent = null;
+        currentExaminable.transform.parent = currentExaminable.originalParent;
 
-        print("Unexamine has been requested");
+        print("Unexamine has been requested: cachedScale = " + cachedScale + " | Examinable's Scale = " + currentExaminable.transform.localScale + " | parent = " + currentExaminable.transform.parent);
     }
 }
