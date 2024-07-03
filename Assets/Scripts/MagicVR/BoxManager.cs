@@ -12,13 +12,16 @@ public class BoxManager : MonoBehaviour
     private int amountOfGems = 3;
     private int currentGem = 0;
 
-    public Animator boxAnimator;
+    public Gem[] gemsInScene;
     public UnityEvent gameIsWon;
+    
     
     public void GemSelect(Gem currentSelectGem)
     {
         enteredGemOrder += currentSelectGem.gemColorName;
         currentGem += 1;
+
+        currentSelectGem.ChangeEmission(true);
 
         if (currentGem == 3)
             CompareGemOrder();
@@ -49,6 +52,11 @@ public class BoxManager : MonoBehaviour
     {
         currentGem = 0;
         enteredGemOrder = "";
+
+        foreach (Gem gem in gemsInScene)
+        {
+            gem.ChangeEmission(false);
+        }
     }
 
 }

@@ -269,7 +269,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3e2b3ccdeecc7b418bd4678643fe7fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxAnimator: {fileID: 0}
+  gemsInScene:
+  - {fileID: 1504439373613800563}
+  - {fileID: 4865082145954051046}
+  - {fileID: 7919649243554251352}
   gameIsWon:
     m_PersistentCalls:
       m_Calls:
@@ -514,6 +517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemColorName: Blue
+  targetMaterial: {fileID: 2100000, guid: c46016725e1974216b306bd27f5b0ca7, type: 2}
 --- !u!114 &3856118200494054576
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1361,6 +1365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemColorName: Green
+  targetMaterial: {fileID: 2100000, guid: d4bceadd7bd18457aba32ab13dac25f8, type: 2}
 --- !u!114 &7699907762488851851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1876,6 +1881,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gemColorName: Red
+  targetMaterial: {fileID: 2100000, guid: 1a59b77561c6f4c43bce3363794bb4e8, type: 2}
 --- !u!114 &9075958847674932780
 MonoBehaviour:
   m_ObjectHideFlags: 0
